@@ -1,6 +1,8 @@
 
 #include<bits/stdc++.h>
 using namespace std;
+int wt[100],bt[100],avwt=0,avtat=0,tat[100];
+    int p,b;
 
 void waitime(int bt[],int p,int wt[],int avwt)
 {
@@ -15,38 +17,37 @@ void waitime(int bt[],int p,int wt[],int avwt)
         }
         
     }
-    cout<< "Waiting time"<<endl;
+    // cout<< "Waiting time"<<endl;
     for(int i=0;i<p;i++)
     {
         avwt=wt[i]+avwt;
         temp=avwt/p;
         
-        cout<<wt[i]<<endl;
+        // cout<<wt[i]<<endl;
         
     }
-    cout<< "average time "<< temp<< endl;
+    cout<< "Average time of Waiting time:-"<< temp<< endl;
 }
 void tempat(int bt[],int p,int wt[],int tat[] ,int avtat)
 {
     int trmp;
-    cout<<"turnaround time"<<endl;
+    // cout<<"turnaround time"<<endl;
     for (int i=0;i<p;i++)
     
     {
         tat[i]=bt[i]+wt[i];
-        cout<<tat[i]<<endl;
+        // cout<<tat[i]<<endl;
         avtat=tat[i]+avtat;
         trmp=avtat/p;
         
         
     }
-    cout<< "average time "<< trmp<< endl;
+    cout<< "Average time of tat:-"<< trmp<< endl;
 }
 int main()
 
 {
-    int wt[100],bt[100],avwt=0,avtat=0,tat[100];
-    int p,b;
+    
     cout<<"Enter the number of process "<< endl;
     cin>>p;
    
@@ -58,5 +59,11 @@ int main()
     }
     waitime(bt,p,wt,avwt);
     tempat(bt,p,wt,tat,avtat);
+    cout<<"process "<<"bursttime "<<" waitingtime "<< "tat "<<endl;
+    for(int i=0;i<p;i++)
+    {
+        cout<<"Process "<<i+1<<"      "<<bt[i]<<"      "<<wt[i]<<"       "<<tat[i]<<"     "<<endl;
+    }
+    
     return 0;
 }
